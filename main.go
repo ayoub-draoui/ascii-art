@@ -15,6 +15,6 @@ func main() {
 	checkTheChar := asciiart.CheckTheChar(os.Args[1])
 	// go read the file standard
 	readFile := asciiart.ReadFile("./sources/standard.txt")
-
+	// go print my argument  
 	asciiart.FindAndPrint(checkTheChar, readFile)
 }

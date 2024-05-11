@@ -12,6 +12,7 @@ func ReadFile(fileName string) map[rune][]string {
 		log.Fatalln("someting went wrong")
 	}
 	defer file.Close()
+	// make a map
 	data := make(map[rune][]string)
 	scaner := bufio.NewScanner(file)
 	i := 32
@@ -21,12 +22,11 @@ func ReadFile(fileName string) map[rune][]string {
 		if scaner.Text() == "" {
 			continue
 		}
-
 		if line == 8 {
 			line = 0
 			i++
 		}
-
+		// stor our data into a map
 		data[rune(i)] = append(data[rune(i)], scaner.Text())
 		line++
 

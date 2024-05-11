@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "${fileDirname}/main.go",
-            "args": ["hello\\n\\n"]
+            "args": ["h"]
             
         }
     ]
