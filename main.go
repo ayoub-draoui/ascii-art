@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"log"
 	"os"
 
@@ -14,8 +12,9 @@ func main() {
 		log.Fatalln("err: you shoud enter two argumrnts")
 	}
 	// check if the input is among ascii manual
-	changed := asciiart.CheckTheChar(os.Args[1])
+	checkTheChar := asciiart.CheckTheChar(os.Args[1])
 	// go read the file standard
-	redFile := asciiart.ReadFile("./sources/standard.txt")
+	readFile := asciiart.ReadFile("./sources/standard.txt")
 
+	asciiart.FindAndPrint(checkTheChar, readFile)
 }

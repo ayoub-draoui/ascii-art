@@ -2,7 +2,6 @@ package asciiart
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 )
@@ -14,12 +13,26 @@ func ReadFile(fileName string) map[rune][]string {
 	}
 	defer file.Close()
 	data := make(map[rune][]string)
-
-
 	scaner := bufio.NewScanner(file)
-	// "./sources/standard.txt"
+	i := 32
+	line := 0
 	for scaner.Scan() {
-		line := scaner.Text()
-		fmt.Println(line)
+
+		if scaner.Text() == "" {
+			continue
+		}
+
+		if line == 8 {
+			line = 0
+			i++
+		}
+
+		data[rune(i)] = append(data[rune(i)], scaner.Text())
+		line++
+
+		if i == 127 {
+			break
+		}
 	}
+	return data
 }
