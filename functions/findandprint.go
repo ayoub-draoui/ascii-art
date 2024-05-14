@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-func FindAndPrint(checkTheChar []string, readFile map[rune][]string) {
+func FindAndPrint(checkTheChar []string, readFile map[rune][]string) string {
+	res := ""
 	is_printed := false
 	for idx, word := range checkTheChar {
 		if word != "" {
@@ -23,11 +24,10 @@ func FindAndPrint(checkTheChar []string, readFile map[rune][]string) {
 		} else {
 			if idx == len(checkTheChar)-1 && !is_printed {
 				continue
-
-			}else{
-
+			} else {
 				fmt.Println()
 			}
 		}
 	}
+	return res
 }
